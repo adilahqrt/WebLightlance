@@ -6,9 +6,9 @@ abstract class Connection {
     {
         if ($this->connection == null) {
             $host = 'localhost';
-            $dbname = 'lightlance';
-            $user = 'root';
-            $password = null;
+            $dbname = 'u1694897_c_reg_4_db';
+            $user = 'u1694897_c_reg_4';
+            $password = 'jtipolije';
 
             $this->connection = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         }
