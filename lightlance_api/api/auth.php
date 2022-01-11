@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controller/auth_controller.php';
+require_once 'lightlance_api/controller/auth_controller.php';
 
 $url = explode('/', $_GET['cmd']);
 $authController = AuthController::getInstance();

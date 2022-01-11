@@ -1,5 +1,5 @@
 <?php
-require_once 'utils/connection.php';
+require_once 'lightlance_api/utils/connection.php';
 
 class OrderController extends Connection {
     private static $instance = null;

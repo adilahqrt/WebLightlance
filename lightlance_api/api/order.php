@@ -1,7 +1,7 @@
 <?php
-require_once 'controller/order_controller.php';
-require_once 'controller/user_controller.php';
-require_once 'controller/servicing_controller.php';
+require_once 'lightlance_api/controller/order_controller.php';
+require_once 'lightlance_api/controller/user_controller.php';
+require_once 'lightlance_api/controller/servicing_controller.php';
 
 $url = explode('/', $_GET['cmd']);
 

@@ -1,7 +1,7 @@
 <?php
 
-require_once 'utils/connection.php';
-require_once 'model/user.php';
+require_once 'lightlance_api/utils/connection.php';
+require_once 'lightlance_api/model/user.php';
 
 class AuthController extends Connection
 {

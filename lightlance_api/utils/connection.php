@@ -6,7 +6,7 @@ abstract class Connection {
     public function getConnection() : PDO
     {
         if ($this->connection == null) {
-            $host = 'localhost';
+            $host = 'ws-tif.com';
             $dbname = 'u1694897_c_reg_4_db';
             $user = 'u1694897_c_reg_4';
             $password = 'jtipolije';

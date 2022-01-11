@@ -112,7 +112,6 @@ $row = mysqli_fetch_array($admin2);
                             <th scope="col">Tanggal Pemesanan</th>
                             <th scope="col">Alamat Pemesanan</th>
                             <th scope="col">Paket</th>
-                            <th scope="col">Kategori</th>
                             <th scope="col">Status Pemesanan</th>
                             <th scope="col">Aksi</th>
                             </tr>
@@ -131,23 +130,20 @@ $row = mysqli_fetch_array($admin2);
                             $pencarian = trim(mysqli_real_escape_string($koneksi, $_POST['pencarian']));
                             if($pencarian != ''){
                                 $sql = "SELECT * FROM pemesanan INNER JOIN user ON pemesanan.id_user=user.id_user INNER JOIN paket 
-                                        ON pemesanan.id_paket=paket.id_paket INNER JOIN kategori ON 
-                                        pemesanan.id_kategori=kategori.id_kategori WHERE fullname LIKE '%$pencarian%' OR id_pemesanan 
+                                        ON pemesanan.id_paket=paket.id_paket WHERE fullname LIKE '%$pencarian%' OR id_pemesanan 
                                         LIKE '%$pencarian%' OR tgl_pemesanan LIKE '%$pencarian%' OR alamat LIKE '%$pencarian%' OR nama_paket
-                                        LIKE '%$pencarian%' OR nama_kategori LIKE '%$pencarian%' OR status_pemesanan LIKE '%$pencarian%'";
+                                        LIKE '%$pencarian%' OR status_pemesanan LIKE '%$pencarian%'";
                                 $query = $sql;
                                 $queryJml = $sql;
                             }else{
                                 $query = "SELECT * FROM pemesanan INNER JOIN user ON pemesanan.id_user=user.id_user INNER JOIN paket 
-                                        ON pemesanan.id_paket=paket.id_paket INNER JOIN kategori ON 
-                                        pemesanan.id_kategori=kategori.id_kategori ORDER BY id_pemesanan DESC LIMIT $posisi, $batas";
+                                        ON pemesanan.id_paket=paket.id_paket ORDER BY id_pemesanan DESC LIMIT $posisi, $batas";
                                 $queryJml = "SELECT * FROM pemesanan";
                                 $no = $posisi + 1;
                             }
                         }else{
                             $query = "SELECT * FROM pemesanan INNER JOIN user ON pemesanan.id_user=user.id_user INNER JOIN paket 
-                            ON pemesanan.id_paket=paket.id_paket INNER JOIN kategori ON 
-                            pemesanan.id_kategori=kategori.id_kategori ORDER BY id_pemesanan DESC LIMIT $posisi, $batas";
+                            ON pemesanan.id_paket=paket.id_paket ORDER BY id_pemesanan DESC LIMIT $posisi, $batas";
                             $queryJml = "SELECT * FROM pemesanan";
                             $no = $posisi + 1;
                         }
@@ -164,7 +160,6 @@ $row = mysqli_fetch_array($admin2);
                                     <td>'.$data['tgl_pemesanan'].'</td>
                                     <td>'.$data['alamat'].'</td>
                                     <td>'.$data['nama_paket'].'</td>
-                                    <td>'.$data['nama_kategori'].'</td>
                                     <td>'.$data['status_pemesanan'].'</td>
                                     <td>
                                         <a href="delete_paket.php?id_paket='.$data['id_pemesanan'].'" class="btn btn-danger btn-sm" onclick=" return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>

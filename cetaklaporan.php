@@ -24,8 +24,7 @@
   $tgl_mulai = $_POST['tglm'];
   $tgl_selesai = $_POST['tgls'];
   $query=mysqli_query($koneksi,"SELECT * from pemesanan INNER JOIN user ON pemesanan.id_user=user.id_user INNER JOIN paket 
-                                ON pemesanan.id_paket=paket.id_paket INNER JOIN kategori ON 
-                                pemesanan.id_kategori=kategori.id_kategori WHERE tgl_pemesanan BETWEEN '$tgl_mulai' AND '$tgl_selesai'");
+                                ON pemesanan.id_paket=paket.id_paket WHERE tgl_pemesanan BETWEEN '$tgl_mulai' AND '$tgl_selesai'");
   $lihat=mysqli_fetch_array($query);
   if (empty($tgl_mulai) or empty($tgl_selesai)){
     $pdf->Cell(26.5, 2,"Laporan Pemesanan",0,10,'C');
@@ -44,7 +43,6 @@
   $pdf->Cell(4, 1, 'Tanggal Pemesanan', 1, 0, 'C');
   $pdf->Cell(4, 1, 'Alamat Pemesanan', 1, 0, 'C');
   $pdf->Cell(4, 1, 'Paket', 1, 0, 'C');
-  $pdf->Cell(4, 1, 'Kategori', 1, 0, 'C');
   $pdf->Cell(4, 1, 'Status Pemesanan', 1, 1, 'C');
   $pdf->SetFont('Arial','',10);
   
@@ -54,8 +52,7 @@
         // memanggil database
         $no = 1;
         $query=mysqli_query($koneksi,"SELECT * from pemesanan INNER JOIN user ON pemesanan.id_user=user.id_user INNER JOIN paket 
-                                      ON pemesanan.id_paket=paket.id_paket INNER JOIN kategori ON 
-                                      pemesanan.id_kategori=kategori.id_kategori");
+                                      ON pemesanan.id_paket=paket.id_paket ");
         while($lihat=mysqli_fetch_array($query)){
           $semuadata[] = $lihat;
         }
@@ -71,7 +68,6 @@
         $pdf->Cell(4, 1, $value['tgl_pemesanan'], 1, 0,'C');
         $pdf->Cell(4, 1, $value['alamat'], 1, 0,'C');
         $pdf->Cell(4, 1, $value['nama_paket'], 1, 0,'C');
-        $pdf->Cell(4, 1, $value['nama_kategori'], 1, 0,'C');
         $pdf->Cell(4, 1, $value['status_pemesanan'], 1, 1,'C');
       }
         $pdf->ln(1);
@@ -85,8 +81,7 @@
         $pdf->Output("Laporan Pemesanan.pdf","I");
   }else{
   $query=mysqli_query($koneksi,"SELECT * from pemesanan INNER JOIN user ON pemesanan.id_user=user.id_user INNER JOIN paket 
-                                ON pemesanan.id_paket=paket.id_paket INNER JOIN kategori ON 
-                                pemesanan.id_kategori=kategori.id_kategori WHERE tgl_pemesanan BETWEEN '$tgl_mulai' AND '$tgl_selesai'");
+                                ON pemesanan.id_paket=paket.id_paket WHERE tgl_pemesanan BETWEEN '$tgl_mulai' AND '$tgl_selesai'");
   while($lihat=mysqli_fetch_array($query)){
     $semuadata[] = $lihat;
   }
@@ -103,7 +98,6 @@
   $pdf->Cell(4, 1, $value['tgl_pemesanan'], 1, 0,'C');
   $pdf->Cell(4, 1, $value['alamat'], 1, 0,'C');
   $pdf->Cell(4, 1, $value['nama_paket'], 1, 0,'C');
-  $pdf->Cell(4, 1, $value['nama_kategori'], 1, 0,'C');
   $pdf->Cell(4, 1, $value['status_pemesanan'], 1, 1,'C');
   }
 

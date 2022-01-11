@@ -67,7 +67,7 @@ include('koneksi.php');
     
 
     <!-- Bootstrap core CSS -->
-<link href="../lightlance/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
     <link href="sidebars.css" rel="stylesheet">

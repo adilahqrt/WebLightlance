@@ -1,5 +1,5 @@
 <?php
-require_once 'controller/user_controller.php';
+require_once 'lightlance_api/controller/user_controller.php';
 
 $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 $userController = UserController::getInstance();

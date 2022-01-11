@@ -55,14 +55,14 @@ while($tiap = $ambil->fetch_assoc()){
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>EDIT DATA ADMIN</title>
+    <title>EDIT DATA PAKET</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
 
     
 
 <!-- Bootstrap core CSS -->
-<link href="../lightlance/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
     <link href="sidebars.css" rel="stylesheet">
@@ -71,12 +71,12 @@ while($tiap = $ambil->fetch_assoc()){
   <body>
 
 <div class="container">
-<h1 class="text-center mt-3">EDIT DATA ADMIN</h1>
+<h1 class="text-center mt-3">EDIT DATA PAKET</h1>
 
 <!--Awal card form-->
     <div class="card mt-3">
         <div class="card-header bg-primary text-white">
-        Form Edit Data Admin
+        Form Edit Data Paket
         </div>
         <div class="card-body">
             <form action="edit_paket.php?id_paket=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
